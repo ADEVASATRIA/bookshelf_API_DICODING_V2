@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
-// const { nanoid } = require('nanoid');
 const { nanoid } = require('nanoid');
 
 const books = [];
 
-router.post('/', (req,res) =>{
+router.post('/', (req, res) => {
     const {
         name,
         year,
@@ -16,26 +15,24 @@ router.post('/', (req,res) =>{
         reading,
     } = req.body;
 
-    // Cek apakah properti 'name' ada di dalam request body
-    if(!name){
+    if (!name) {
         return res.status(400).json({
             status: 'Fail',
             message: "Gagal menambahkan buku. Mohon isi nama buku",
         });
     }
 
-    // cek apakah nilai 'readPage' lebih besar dari 'pageCount'
-    if(readPage > req.body.pageCount){
+    if (readPage > req.body.pageCount) {
         return res.status(400).json({
             status: 'Fail',
             message: "Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount",
         });
     }
 
-    const id =  nanoid();
-    const insertAt = new Date().toISOString();
-    const updateAt = insertAt;
-    const finished = (req.body.pageCount === readPage);
+    const id = nanoid();
+    const insertedAt = new Date().toISOString();
+    const updatedAt = insertedAt;
+    const finished = req.body.pageCount === readPage;
 
     const newBook = {
         id,
@@ -61,7 +58,6 @@ router.post('/', (req,res) =>{
             bookId: id,
         },
     });
-
 });
 
 module.exports = router;
