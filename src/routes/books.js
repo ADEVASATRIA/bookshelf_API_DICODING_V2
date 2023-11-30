@@ -2,7 +2,6 @@
 const express = require('express');
 const router = express.Router();
 const Book = require('../models/book'); // Ubah path sesuai dengan struktur proyek Anda
-
 const books = [];
 
 // Endpoint untuk menambah buku
