@@ -6,12 +6,8 @@ const port = 9000;
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-
-
 app.use(bodyParser.json());
 app.use('/books', bookRoute);
-
-
 
 mongoose.set("strictQuery", false);
 
