@@ -4,6 +4,7 @@ const bookRoute = require('../routes/books');
 const app = express();
 const port = 9000;
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 
 
@@ -14,7 +15,7 @@ app.use('/books', bookRoute);
 
 mongoose.set("strictQuery", false);
 
-mongoose.connect('mongodb+srv://admin:adeva10MEI2002@testingapiv1.ojgr6ub.mongodb.net/Bookshelf_API_dicoding_v2?retryWrites=true&w=majority')
+mongoose.connect(process.env.MONGO_URL, {useNewUrlParser: true, useUnifiedTopology: true})
 .then(() => {
     console.log('Connected to Database');
     app.listen(port, () => {
