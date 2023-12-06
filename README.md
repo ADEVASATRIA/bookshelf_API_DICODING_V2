@@ -1,5 +1,5 @@
 # bookshelf_API_DICODING_V2
-
+![THUMNAIL ](./Dashboard.png)
 # Library Dependencies
  - Express  (For Router Library)
  - MongoDB  (For restore Library)
